@@ -1,0 +1,58 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {/* CSS HEX */
+--black-chocolate: #231c07ff;
+--dark-purple: #310a31ff;
+--rhythm: #847996ff;
+--peach-crayola: #f1bf98ff;
+--ghost-white: #e9ecf5ff;
+--cultured: #efefefff;
+--snow: #fcf7f8ff;
+
+/* CSS HSL */
+--black-chocolate: 34 27 7;
+--dark-purple: 51 10 51;
+--rhythm: 132 121 150;
+--peach-crayola: 241 190 152;
+--ghost-white: 234 237 246;
+--cultured: 240 240 240;
+--snow: 252 248 249;
+
+
+/* SCSS Gradient */
+--gradient-top: linear-gradient(0deg, #231c07ff, #310a31ff, #847996ff, #f1bf98ff, #e9ecf5ff, #efefefff, #fcf7f8ff);
+--gradient-right: linear-gradient(90deg, #231c07ff, #310a31ff, #847996ff, #f1bf98ff, #e9ecf5ff, #efefefff, #fcf7f8ff);
+--gradient-bottom: linear-gradient(180deg, #231c07ff, #310a31ff, #847996ff, #f1bf98ff, #e9ecf5ff, #efefefff, #fcf7f8ff);
+--gradient-left: linear-gradient(270deg, #231c07ff, #310a31ff, #847996ff, #f1bf98ff, #e9ecf5ff, #efefefff, #fcf7f8ff);
+--gradient-top-right: linear-gradient(45deg, #231c07ff, #310a31ff, #847996ff, #f1bf98ff, #e9ecf5ff, #efefefff, #fcf7f8ff);
+--gradient-bottom-right: linear-gradient(135deg, #231c07ff, #310a31ff, #847996ff, #f1bf98ff, #e9ecf5ff, #efefefff, #fcf7f8ff);
+--gradient-top-left: linear-gradient(225deg, #231c07ff, #310a31ff, #847996ff, #f1bf98ff, #e9ecf5ff, #efefefff, #fcf7f8ff);
+--gradient-bottom-left: linear-gradient(315deg, #231c07ff, #310a31ff, #847996ff, #f1bf98ff, #e9ecf5ff, #efefefff, #fcf7f8ff);
+--gradient-radial: radial-gradient(#231c07ff, #310a31ff, #847996ff, #f1bf98ff, #e9ecf5ff, #efefefff, #fcf7f8ff);
+
+--color-primary: var(--rhythm);
+--color-secondary: var(--dark-purple);
+}
+
+.light {
+
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
