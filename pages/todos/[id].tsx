@@ -2,6 +2,7 @@ import { Todo } from "../../utils/types"
 import { useRouter } from "next/router"
 import { useState } from "react"
 import Header from "../../components/Header"
+import Footer from "../../components/Footer"
 
 // Define Prop Interface
 interface ShowProps {
@@ -48,11 +49,11 @@ function Show(props: ShowProps) {
 
   //return JSX
   return (
-    <main className="flex h-screen flex-col">
+    <div className="flex h-screen flex-col">
       <Header>
       <h1 className="flex-1 text-2xl font-bold text-white">Next Todo</h1>
       </Header>
-      <div className="flex flex-1 flex-col h-full items-center mx-4 sm:mx-32 lg:mx-48">
+      <main className="flex flex-1 flex-col h-full items-center mx-4 sm:mx-32 lg:mx-48">
       <div className="flex self-stretch justify-between p-3 items-center">
         <h1 className="font-bold text-xl" >Todo title: {todo.title}</h1>
         <h2 className="text-xl">{todo.completed ? "Completed" : "In Progress"}</h2>
@@ -74,8 +75,9 @@ function Show(props: ShowProps) {
         Go Back
       </button>
       </div>
-    </div>
     </main>
+    <Footer/>
+    </div>
   )
 }
 
@@ -83,6 +85,7 @@ function Show(props: ShowProps) {
 export async function getServerSideProps(context: any) {
   let url = "http://127.0.0.1:3000/api/todos"
   // fetch the todo, the param was received via context.query.id
+  // console.log(context)
   const res = await fetch(url + "/" + context.query.id)
   const todo = await res.json()
 

@@ -32,7 +32,7 @@ interface TodoItemProps {
     return (
      <Link href={"http://127.0.0.1:3000/todos/" + props.todo._id} >
        <li className={`flex items-center gap-3 border-bottom-2 border-black py-4 text-center text-sm hover:bg-blue-100 pr-6 ${props.todo.completed ? "text-gray-400 line-through" : "text-gray-700"}`}>
-          <p className="flex-1 pl-6 ">
+          <p className="flex-1 pl-6 truncate">
           {props.todo.title}
         </p>
         <p className="flex-1 pl-6 ">

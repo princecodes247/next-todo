@@ -5,7 +5,7 @@ import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 
 export default function Header({ children }: {children: any}) {
   return (
-    <nav className="bg-gray-800 px-2 sm:px-8 py-4 gap-1 items-center flex flex-row justify-between">
+    <nav className="bg-gray-800 px-4 sm:px-8 py-4 gap-1 items-center flex flex-row justify-between">
       {children}
     </nav>
   );

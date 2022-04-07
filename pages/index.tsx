@@ -8,6 +8,7 @@ import TodoItem from "../components/TodoItem";
 import React from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon, CalendarIcon } from "@heroicons/react/outline";
+import Footer from "../components/Footer";
 
 // Define the components props
 interface HomeProps {
@@ -66,7 +67,7 @@ const Home: NextPage<HomeProps> = (props: { todos: Todo[] }) => {
   };
 
   return (
-    <div className="">
+    <div className="h-screen flex flex-col">
       <Head>
         <title>Next Todo Assessment</title>
         <meta name="description" content="Todo app with Next JS" />
@@ -84,7 +85,7 @@ const Home: NextPage<HomeProps> = (props: { todos: Todo[] }) => {
           Create a new Todo
         </button>
       </Header>
-      <main className="flex flex-col py-6">
+      <main className="flex flex-1 flex-col py-6">
         <section className="px-16">
           <div className="m-8 mx-1 sm:m-8 rounded overflow-hidden">
             <div className="flex items-center gap-3 border-bottom-2 border-black  p-6 py-3 bg-blue-100">
@@ -238,13 +239,16 @@ const Home: NextPage<HomeProps> = (props: { todos: Todo[] }) => {
           </Dialog>
         </Transition.Root>
       </main>
+      <Footer/>
     </div>
   );
 };
 
 // GET PROPS FOR SERVER SIDE RENDERING
-export async function getServerSideProps() {
+export async function getServerSideProps(context: any) {
   // get todo data from API
+  // let API_URL = window.location.origin;
+  // console.log(context.)
   const res = await fetch("http://127.0.0.1:3000/api/todos");
   const todos = await res.json();
   console.log("here", todos);
