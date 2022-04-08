@@ -11,9 +11,9 @@ interface TodoItemProps {
 
     const [date, setDate] = useState<string>("")
     const [currDate, setCurrDate] = useState(Date.now())
-  //   setInterval(() => {
-  //     setCurrDate(Date.now())
-  // }, 1000);
+    setInterval(() => {
+      setCurrDate(Date.now())
+  }, 10000);
       
     useEffect(() => {
       
