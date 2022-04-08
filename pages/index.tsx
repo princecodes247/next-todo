@@ -44,7 +44,7 @@ const Home: NextPage<HomeProps> = (props: HomeProps) => {
       todo.body = body;
 
       // Make the API request
-      await fetch(url, {
+      await fetch(url + "/api/todos", {
         method: "post",
         headers: {
           "Content-Type": "application/json",
@@ -230,9 +230,9 @@ const Home: NextPage<HomeProps> = (props: HomeProps) => {
 // GET PROPS FOR SERVER SIDE RENDERING
 export async function getServerSideProps(context: any) {
   // get todo data from API
-  let url = process.env.API_URL + "/api/todos"
+  let url = process.env.API_URL
   console.log(url)
-  const res = await fetch(url);
+  const res = await fetch(url + "/api/todos");
   const todos = await res.json();
   console.log("here", todos);
 
