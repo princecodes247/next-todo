@@ -9,6 +9,7 @@ import React from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon, CalendarIcon } from "@heroicons/react/outline";
 import Footer from "../components/Footer";
+import TodoList from "../components/TodoList";
 
 // Define the components props
 interface HomeProps {
@@ -42,7 +43,7 @@ const Home: NextPage<HomeProps> = (props: { todos: Todo[] }) => {
       todo.body = body;
 
       // Make the API request
-      await fetch("http://127.0.0.1:3000/api/todos", {
+      await fetch(process.env.API_URL + "/api/todos", {
         method: "post",
         headers: {
           "Content-Type": "application/json",
@@ -87,26 +88,7 @@ const Home: NextPage<HomeProps> = (props: { todos: Todo[] }) => {
       </Header>
       <main className="flex flex-1 flex-col py-6">
         <section className="px-16">
-          <div className="m-8 mx-1 sm:m-8 rounded overflow-hidden">
-            <div className="flex items-center gap-3 border-bottom-2 border-black  p-6 py-3 bg-blue-100">
-              <p className="font-semibold flex-1 text-center">Title</p>
-              <p className="font-semibold flex-1 text-center">Status</p>
-              <p className="font-semibold flex-1 text-center">Date</p>
-            </div>
-            <ul className=" flex flex-col-reverse pb-3 bg-blue-50  ">
-              {filteredTodos.length == 0 ? (
-                <li className="flex items-center gap-3 border-bottom-2 border-black  p-6 py-3 ">
-                  <p className="font-semibold text-gray-400 flex-1 text-center">
-                    No Todos found
-                  </p>
-                </li>
-              ) : (
-                filteredTodos.map((todo) => (
-                  <TodoItem key={todo._id} todo={todo} />
-                ))
-              )}
-            </ul>
-          </div>
+          <TodoList filteredTodos={filteredTodos}/>
         </section>
         {/* FAB */}
         <button
@@ -247,9 +229,8 @@ const Home: NextPage<HomeProps> = (props: { todos: Todo[] }) => {
 // GET PROPS FOR SERVER SIDE RENDERING
 export async function getServerSideProps(context: any) {
   // get todo data from API
-  // let API_URL = window.location.origin;
   // console.log(context.)
-  const res = await fetch("http://127.0.0.1:3000/api/todos");
+  const res = await fetch(process.env.API_URL + "/api/todos");
   const todos = await res.json();
   console.log("here", todos);
 
