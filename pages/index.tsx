@@ -89,7 +89,7 @@ const Home: NextPage<HomeProps> = (props: HomeProps) => {
       </Header>
       <main className="flex flex-1 flex-col py-6">
         <section className="px-16">
-          <TodoList filteredTodos={filteredTodos}/>
+          <TodoList filteredTodos={filteredTodos} url={url}/>
         </section>
         {/* FAB */}
         <button

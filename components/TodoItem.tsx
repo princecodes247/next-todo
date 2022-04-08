@@ -46,13 +46,3 @@ interface TodoItemProps {
      </Link>
     )
   }
-  
-  export async function getServerSideProps(context: any) {
-    // get todo data from API
-    let url = process.env.API_URL
-  
-    // return props
-    return {
-      props: { url },
-    };
-  }

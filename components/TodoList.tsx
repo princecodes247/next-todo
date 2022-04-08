@@ -5,6 +5,7 @@ import TodoItem from "./TodoItem";
 
 interface TodoListProps {
     filteredTodos: Todo[];
+    url: string;
 }
 
   export default function TodoList(props: TodoListProps) {
@@ -25,7 +26,7 @@ interface TodoListProps {
             </li>
           ) : (
             props.filteredTodos.map((todo) => (
-              <TodoItem key={todo._id} todo={todo} />
+              <TodoItem key={todo._id} todo={todo} url={props.url} />
             ))
           )}
         </ul>
