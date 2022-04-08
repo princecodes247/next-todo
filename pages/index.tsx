@@ -14,10 +14,11 @@ import TodoList from "../components/TodoList";
 // Define the components props
 interface HomeProps {
   todos: Array<Todo>;
+  url: string;
 }
 
-const Home: NextPage<HomeProps> = (props: { todos: Todo[] }) => {
-  let { todos } = props;
+const Home: NextPage<HomeProps> = (props: HomeProps) => {
+  let { todos, url } = props;
 
   const cancelButtonRef = useRef(null);
   const backButtonRef = useRef(null);
@@ -43,7 +44,7 @@ const Home: NextPage<HomeProps> = (props: { todos: Todo[] }) => {
       todo.body = body;
 
       // Make the API request
-      await fetch(process.env.API_URL + "/api/todos", {
+      await fetch(url, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
@@ -229,14 +230,15 @@ const Home: NextPage<HomeProps> = (props: { todos: Todo[] }) => {
 // GET PROPS FOR SERVER SIDE RENDERING
 export async function getServerSideProps(context: any) {
   // get todo data from API
-  // console.log(context.)
-  const res = await fetch(process.env.API_URL + "/api/todos");
+  let url = process.env.API_URL + "/api/todos"
+  console.log(url)
+  const res = await fetch(url);
   const todos = await res.json();
   console.log("here", todos);
 
   // return props
   return {
-    props: { todos },
+    props: { todos, url },
   };
 }
 
