@@ -5,6 +5,7 @@ import { Todo } from "../utils/types";
 interface TodoItemProps {
   key?: number;
   todo: Todo;
+  url: string;
 }
 
   export default function TodoItem(props: TodoItemProps) {
