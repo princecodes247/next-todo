@@ -1,9 +1,9 @@
 //IMPORT MONGOOSE
 import mongoose, { Model } from "mongoose"
 
-// CONNECTING TO MONGOOSE (Get Database Url from .env.local)
-// const { DATABASE_URL } = process.env.DATABASE_URL
-const DATABASE_URL = "mongodb://127.0.0.1/nexttodo"
+// CONNECTING TO MONGOOSE (Get Database Url from .env)
+const DATABASE_URL = process.env.DATABASE_URL
+
 
 // connection function
 export const connect = async () => {
